@@ -1,0 +1,291 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        30.722814559936523,
+        -660.656005859375,
+        7.993826866149902
+      ],
+      "min": [
+        -47.80656814575195,
+        -676.5115356445313,
+        -66.23278045654297
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 786384,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.9999845623970032,
+        0.9989559054374695,
+        0.9999999403953552
+      ],
+      "min": [
+        -0.9999979138374329,
+        -0.9999999403953552,
+        -0.9999983310699463
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.6549019813537598,
+        0.6470588445663452,
+        0.6549019813537598,
+        1.0
+      ],
+      "min": [
+        0.01568627543747425,
+        0.019607843831181526,
+        0.01568627543747425,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.9292510151863098,
+        0.9959970116615295
+      ],
+      "min": [
+        3.5000000934815034e-05,
+        0.002672000089660287
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 362301,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1572768,
+      "componentType": 5126,
+      "count": 32232,
+      "max": [
+        33.06245803833008,
+        -660.5946044921875,
+        9.662229537963867
+      ],
+      "min": [
+        -47.37840270996094,
+        -683.1985473632813,
+        -67.33504486083984
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1959552,
+      "componentType": 5126,
+      "count": 32232,
+      "max": [
+        0.999985933303833,
+        0.9998213052749634,
+        1.0
+      ],
+      "min": [
+        -0.999962568283081,
+        -1.0,
+        -0.9999756813049316
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 1048512,
+      "componentType": 5126,
+      "count": 32232,
+      "max": [
+        0.7607843279838562,
+        0.7333333492279053,
+        0.7686274647712708,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 524256,
+      "componentType": 5126,
+      "count": 32232,
+      "max": [
+        0.9987840056419373,
+        0.9942960143089294
+      ],
+      "min": [
+        0.00014899999951012433,
+        0.0005000000237487257
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1449204,
+      "componentType": 5125,
+      "count": 144801,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "indra.jayusman (https://sketchfab.com/indra.jayusman)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/monumen-bandung-lautan-api-7d45c0c833fb4a3f8c9e070362dec128",
+      "title": "Monumen Bandung Lautan Api"
+    },
+    "generator": "Sketchfab-16.59.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2028408,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 782112,
+      "byteOffset": 2028408,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2346336,
+      "byteOffset": 2810520,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1564224,
+      "byteOffset": 5156856,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 6721080,
+      "uri": "scene.bin"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "material",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "COLOR_0": 2,
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "COLOR_0": 7,
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.9991323947906494,
+        -0.00043143396032973197,
+        -0.04164443165063858,
+        0.0,
+        -0.0007499110652133822,
+        -0.9999706149101257,
+        -0.007632213644683583,
+        0.0,
+        -0.041639912873506546,
+        0.007656821515411361,
+        -0.9991033673286438,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2,
+        3
+      ],
+      "name": "t3.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_2"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_3"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ]
+}

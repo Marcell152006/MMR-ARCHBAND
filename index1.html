@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>ARCHBAND — AR Monumen Bandung</title>
+
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="splash">
+      <svg
+        class="splash-ornament"
+        viewBox="0 0 110 110"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="55"
+          cy="55"
+          r="50"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          opacity=".3"
+        />
+        <circle
+          cx="55"
+          cy="55"
+          r="38"
+          stroke="#c9a84c"
+          stroke-width=".5"
+          opacity=".2"
+        />
+        <polygon
+          points="55,7 103,82 7,82"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          fill="none"
+          opacity=".4"
+        />
+        <polygon
+          points="55,103 7,28 103,28"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          fill="none"
+          opacity=".4"
+        />
+        <circle
+          cx="55"
+          cy="55"
+          r="7"
+          stroke="#c9a84c"
+          stroke-width="1.4"
+          opacity=".8"
+        />
+        <circle cx="55" cy="55" r="2.5" fill="#c9a84c" />
+        <line
+          x1="55"
+          y1="7"
+          x2="55"
+          y2="48"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          opacity=".4"
+        />
+        <line
+          x1="55"
+          y1="62"
+          x2="55"
+          y2="103"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          opacity=".4"
+        />
+        <line
+          x1="7"
+          y1="55"
+          x2="48"
+          y2="55"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          opacity=".4"
+        />
+        <line
+          x1="62"
+          y1="55"
+          x2="103"
+          y2="55"
+          stroke="#c9a84c"
+          stroke-width=".7"
+          opacity=".4"
+        />
+      </svg>
+
+      <div class="splash-title">ARCHBAND</div>
+      <div class="splash-sub">AR HERITAGE · BANDUNG</div>
+      <p class="splash-desc">
+        Arahkan kamera ke <strong>peta Bandung</strong> untuk menjelajahi
+        monumen & warisan budaya kota dengan teknologi Augmented Reality.
+      </p>
+      <button class="splash-btn" onclick="startAR()">MULAI EKSPLORASI</button>
+      <div class="splash-chips">
+        <div class="chip">GEDUNG SATE</div>
+        <div class="chip">MASJID AGUNG</div>
+        <div class="chip">BANDUNG LAUTAN API</div>
+        <div class="chip">GEDUNG KAA</div>
+        <div class="chip">MUSEUM POS INDONESIA</div>
+        <div class="chip">WARENHUIS DE VRIES</div>
+      </div>
+    </div>
+
+    <div id="ar-loading" class="hidden">
+      <div class="loading-ring"></div>
+      <div class="loading-text">MEMUAT AR ENGINE...</div>
+    </div>
+
+    <a-scene
+      id="ar-scene"
+      mindar-image="imageTargetSrc: targets.mind; autoStart: true; uiLoading: no; uiError: no; uiScanning: no;"
+      color-space="sRGB"
+      renderer="colorManagement: true; physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+      style="position: fixed; inset: 0; visibility: hidden"
+    >
+      <a-assets>
+        <a-asset-item id="gedungSate" src="scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="bandungLautan"
+          src="assets/monumen_bandung_lautan_api.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="kaa"
+          src="assets/museum_kaa_bandung_by_aziz_a.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="geologi"
+          src="assets/museum_geologi_bandung.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="warenhuis"
+          src="assets/gedung_warenhuis_de_vries_bandung.glb"
+        ></a-asset-item>
+        <a-asset-item id="pos" src="assets/museumpos.glb"></a-asset-item>
+        <a-asset-item
+          id="masjidAgung"
+          src="assets/masjid_agung_bandung.glb"
+        ></a-asset-item>
+        <img id="mapKiri" src="assets/map_kiri1.png" />
+        <img id="mapKanan" src="assets/map_kanan1.png" />
+      </a-assets>
+
+      <a-camera
+        position="0 0 0"
+        look-controls="enabled: false"
+        raycaster="objects: .clickable; far: 100"
+        cursor="fuse: false"
+      >
+      </a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-entity
+          id="foldRight"
+          position="0 0 0"
+          rotation="0 -180 0"
+          animation__open="property: rotation; 
+                    from: 0 180 0; 
+                    to: 0 0 0; 
+                    dur: 1500; 
+                    easing: easeInOutCubic; 
+                    startEvents: unfold"
+        >
+          <a-plane
+            src="#mapKiri"
+            width="0.75"
+            height="1"
+            position="-0.375 0 0"
+            rotation="0 0 0"
+          >
+          </a-plane>
+
+          <a-plane
+            color="white"
+            width="0.75"
+            height="1"
+            position="-0.375 0 0"
+            rotation="0 180 0"
+          >
+          </a-plane>
+        </a-entity>
+        <a-plane
+          src="#mapKanan"
+          width="0.75"
+          height="1"
+          position="0.375 0 0"
+          rotation="0 0 0"
+        >
+        </a-plane>
+
+        <a-gltf-model
+          src="#gedungSate"
+          position="-0.02 0 0"
+          scale="0.0008 0.0024 0.0008"
+          rotation="90 0 0"
+          visible="false"
+        ></a-gltf-model>
+
+        <a-gltf-model
+          src="#bandungLautan"
+          position="-0.12 -0.183 -3.3"
+          scale="0.001 0.005 0.001"
+          rotation="90 0 0"
+          visible="false"
+        ></a-gltf-model>
+
+        <a-gltf-model
+          src="#kaa"
+          position="-0.12 -0.02 0"
+          scale="0.000035 0.000105 0.000035"
+          rotation="0 -90 -90"
+          visible="false"
+        ></a-gltf-model>
+
+        <a-gltf-model
+          src="#geologi"
+          position="0.15 0.06 0"
+          scale="0.000015 0.000045 0.000015"
+          rotation="90 0 0"
+          visible="false"
+        ></a-gltf-model>
+
+        <a-gltf-model
+          src="#warenhuis"
+          position="0 -0.16 0"
+          scale="0.00005 0.00015 0.00005"
+          rotation="-90 -90 -90"
+          visible="false"
+        ></a-gltf-model>
+
+        <a-gltf-model
+          src="#pos"
+          position="0.16 0 0"
+          scale="0.0008 0.0024 0.0008"
+          rotation="0 -90 90"
+          visible="false"
+        ></a-gltf-model>
+
+        <a-gltf-model
+          src="#masjidAgung"
+          position="-0.2 -0.11 0"
+          scale="0.000025 0.000075 0.000025"
+          rotation="-20 90 90"
+          visible="false"
+        ></a-gltf-model>
+      </a-entity>
+    </a-scene>
+
+    <div id="hud" style="display: none">
+      <div class="hud-top">
+        <div class="hud-logo">ARCHBAND<span>AR HERITAGE · BANDUNG</span></div>
+        <div class="hud-status">
+          <div class="status-dot"></div>
+          <div id="hudStatus">SCANNING MAP...</div>
+        </div>
+        <button class="hud-exit" onclick="exitAR()">✕ KELUAR</button>
+      </div>
+      <div class="corner tl"></div>
+      <div class="corner tr"></div>
+      <div class="corner bl"></div>
+      <div class="corner br"></div>
+      <div class="reticle">
+        <div class="reticle-outer"></div>
+        <div class="reticle-inner"></div>
+        <div class="reticle-h"></div>
+        <div class="reticle-v"></div>
+      </div>
+      <div class="hud-hint">
+        <div class="hint-text"
+          >ARAHKAN KAMERA KE PETA · TAP MARKER UNTUK DETAIL</div
+        >
+      </div>
+    </div>
+    <div id="markers-container"></div>
+    <div id="popup-overlay">
+      <div class="popup-box">
+        <button class="popup-close" onclick="hidePopup()">✕</button>
+
+        <div class="popup-title" id="popupName"></div>
+        <div id="popup-3d-loading">MEMUAT MODEL...</div>
+        <canvas id="popup-3d-canvas" style="display: none"></canvas>
+        <div class="popup-section">
+          <div class="section-title">LOKASI</div>
+          <p class="popup-text" id="popupLocation"></p>
+        </div>
+        <div class="popup-section">
+          <div class="section-title">JAM BUKA - TUTUP</div>
+          <p class="popup-text" id="popupJam"></p>
+        </div>
+        <div class="popup-section">
+          <div class="section-title">LINK INSTAGRAM</div>
+          <p class="popup-text" id="popupIG"></p>
+        </div>
+        <div class="popup-section">
+          <div class="section-title">SEJARAH</div>
+          <p class="popup-text" id="popupHistory"></p>
+        </div>
+        <div class="popup-section">
+          <div class="section-title">FAKTA MENARIK</div>
+          <p class="popup-text" id="popupFact"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script1.js"></script>
+
+    <audio id="bgMusic" src="assets/backsound.mp3" loop preload="auto"></audio>
+  </body>
+</html>
