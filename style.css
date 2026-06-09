@@ -1,3 +1,4 @@
+/* default style */
 :root {
 --gold: #c9a84c;
 --gold2: #f0d080;
@@ -22,6 +23,7 @@ width: 100vw;
 height: 100vh;
 }
 
+/* Splash screen style */
 #splash {
 position: fixed;
 inset: 0;
@@ -48,6 +50,8 @@ height: 110px;
 margin-bottom: 22px;
 animation: spin-slow 14s linear infinite;
 }
+
+/* Splash animation */
 @keyframes spin-slow {
 to {
     transform: rotate(360deg);
@@ -133,6 +137,7 @@ border: 1px solid rgba(201, 168, 76, 0.18);
 padding: 4px 10px;
 }
 
+/* loading onboarding when (hosted) */
 #ar-scene {
 position: fixed;
 inset: 0;
@@ -175,6 +180,7 @@ letter-spacing: 4px;
 color: rgba(201, 168, 76, 0.55);
 }
 
+/* logo */
 #hud {
 position: fixed;
 inset: 0;
@@ -251,6 +257,7 @@ transition: all 0.2s;
 background: rgba(201, 168, 76, 0.18);
 }
 
+/* Page Corner Border Setup Style */
 .corner {
 position: absolute;
 width: 52px;
@@ -355,6 +362,7 @@ color: rgba(201, 168, 76, 0.42);
 text-align: center;
 }
 
+/* Information Pop up detail */
 .popup-section {
 margin-bottom: 14px;
 padding: 10px 12px;
@@ -411,6 +419,7 @@ position: relative;
 animation: popupIn 0.3s ease;
 }
 
+/* Pop up Animation */
 @keyframes popupIn {
 from {
     transform: translateY(40px);
@@ -474,6 +483,7 @@ text-decoration: underline;
 color: #ffffff;
 }
 
+/* Locator style */
 #markers-container {
 position: fixed;
 inset: 0;
