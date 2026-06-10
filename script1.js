@@ -1,3 +1,4 @@
+// Data informasi monumen 
 const monuments = [
     {
     title: "Gedung Sate",
@@ -82,6 +83,7 @@ const monuments = [
     },
 ];
 
+// State management
 let sceneStarted = false;
 let mapOpened = false;
 let markersVisible = false;
@@ -89,6 +91,7 @@ let animFrameId = null;
 let targetEntity = null;
 let markersAnimated = false;
 
+// Source model 3d untuk popup
 const modelSources = [
   {
     src: "scene.gltf",
@@ -120,6 +123,7 @@ const modelSources = [
   }
 ];
 
+// Marker Function
 function createMarkers() {
     const container = document.getElementById("markers-container");
     container.innerHTML = "";
@@ -196,6 +200,7 @@ function updateMarkers() {
     animFrameId = requestAnimationFrame(updateMarkers);
 }
 
+// AR Function
 function startAR() {
     const bgMusic = document.getElementById("bgMusic");
     bgMusic.volume = 0.3; 
